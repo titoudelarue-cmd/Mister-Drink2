@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mister Drink</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>🍻 Mister Drink</h1>
+
+    <div class="card" id="home">
+      <input id="name" placeholder="Ton prénom" maxlength="18" />
+      <div class="row">
+        <button class="primary" id="btnCreate">Créer partie</button>
+        <button id="btnJoinToggle">Rejoindre</button>
+      </div>
+      <div class="row hidden" id="joinRow">
+        <input id="joinCode" placeholder="Code (ex: ABC123)" maxlength="6" />
+        <button class="primary" id="btnJoin">Go</button>
+      </div>
+      <p class="muted">QR unique = l’URL du site. Ensuite code de partie à partager.</p>
+    </div>
+
+    <div class="card hidden" id="room">
+      <h2>Code : <span class="mono" id="roomCode">—</span></h2>
+
+      <div class="card2">
+        <h3>Ton rôle</h3>
+        <div id="myRole" class="role">—</div>
+        <div id="myWord" class="muted">—</div>
+      </div>
+
+      <div class="card2">
+        <h3>Joueurs</h3>
+        <div id="players"></div>
+      </div>
+
+      <div class="card2 hidden" id="hostPanel">
+        <button class="primary" id="btnStart">Démarrer</button>
+      </div>
+
+      <div class="card2" id="cluePanel">
+        <h3>Indice</h3>
+        <input id="clueInput" placeholder="Indice court (40 max)" maxlength="40" />
+        <button class="primary" id="btnClue">Envoyer</button>
+      </div>
+
+      <div class="card2">
+        <h3>Indices</h3>
+        <div id="clues"></div>
+      </div>
+
+      <div class="card2">
+        <h3>Vote</h3>
+        <div id="vote"></div>
+        <button id="btnResolve">Résoudre (hôte)</button>
+      </div>
+
+      <div class="muted small">Rappel : mode responsable, aucune pression.</div>
+    </div>
+
+    <div class="toast hidden" id="toast"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
